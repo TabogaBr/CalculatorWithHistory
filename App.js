@@ -7,27 +7,23 @@ export default function App() {
   const [calc1, setCalc1] = useState('');
   const [calc2, setCalc2] = useState('');
 
-  const [text, setText] = useState('');
   const [data, setData] = useState([]);
 
-  const showList = () => {
-    setData([...data, { key: text }]);
-    setCalc1('');
-    setCalc2('');
-  }
   const doAddition = () => {
     let res = parseInt(calc1) + parseInt(calc2);
     setResult(res);
 
-    setText(calc1 + ' + ' + calc2 + ' = ' + res); // Set the previous value
-    showList();
+    setData([...data, { key: calc1 + ' + ' + calc2 + ' = ' + res }]);
+    setCalc1('');
+    setCalc2('');
   }
   const doSubstraction = () => {
     let res = parseInt(calc1) - parseInt(calc2);
     setResult(res);
 
-    setText(calc1 + ' - ' + calc2 + ' = ' + res); // Set the previous value
-    showList();
+    setData([...data, { key: calc1 + ' - ' + calc2 + ' = ' + res }]);
+    setCalc1('');
+    setCalc2('');
   }
 
   return (
